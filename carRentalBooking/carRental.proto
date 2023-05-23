@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package carrental;
+
+service CarRentalService {
+  rpc CreateCarRental(CreateCarRentalRequest) returns (CreateCarRentalResponse);
+}
+
+message CreateCarRentalRequest {
+  string carName = 1;
+  string customerName = 2;
+}
+
+message CreateCarRentalResponse {
+  string rentalId = 1;
+}
