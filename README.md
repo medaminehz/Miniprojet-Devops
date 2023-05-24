@@ -2,6 +2,9 @@
 # Microservices Project
 
 This project consists of three microservices: Flight Booking, Hotel Rental, and Car Rental. Each microservice handles a specific aspect of the travel booking process.There is a file gateway that integrate all services.
+the first mico service(Flight Booking) : REST
+the second micro service(Hotel Rental) :Graphql
+the third micro service (Car Rental) : GRPC
 
 ## Prerequisites
 
