@@ -1,20 +1,18 @@
 # miniprojet-api-
 # Microservices Project
 
-This project consists of three microservices: Flight Booking, Hotel Rental, and Car Rental. Each microservice handles a specific aspect of the travel booking process.
+This project consists of three microservices: Flight Booking, Hotel Rental, and Car Rental. Each microservice handles a specific aspect of the travel booking process.There is a file gateway that integrate all services.
 
 ## Prerequisites
 
-- Node.js (version X.X.X)
-- MongoDB (version X.X.X)
-- Any additional dependencies or services required by each microservice (specified in their respective README files)
+- Node.js (version 16.16.0)
 
 ## Installation
 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/microservices-project.git
+   git clone https://github.com/aminehz/miniprojet-api-
 2.Install dependencies for each microservice:
 - Flight Booking:
     ```bash
