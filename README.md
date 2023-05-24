@@ -52,7 +52,8 @@ the third micro service (Car Rental) : GRPC
 - Flight Booking: http://localhost:3000
 - Hotel Rental: http://localhost:4000
 - Car Rental: http://localhost:50051
-or you can access to the microservices via  gateway : 
+
+3. You can access to the microservices via  gateway : 
   - /flights': 'http://localhost:5000/flights',
   - '/createFlight': 'http://localhost:5000/createFlight',
   - '/updateFlight':  'http://localhost:5000/updateFlight/:flightId',
