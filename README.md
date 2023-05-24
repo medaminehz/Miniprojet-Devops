@@ -40,14 +40,16 @@ the third micro service (Car Rental) : GRPC
     ```bash
     cd hotelsBooking
     npm start
+    
   - Car Rental:
     ```bash
     cd carRentalBooking
     npm start
+    
    - Gateway api:
-    ```bash
-    cd gateway
-    npm start
+     ```bash
+     cd gateway
+     npm start
     
     
 2. Access the microservices via their respective endpoints:
