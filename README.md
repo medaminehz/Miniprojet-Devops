@@ -30,21 +30,22 @@ the third micro service (Car Rental) : GRPC
     cd carRentalBooking
     npm install
 ## Usage:
+
 1. Start each microservice:
-- Flight Booking:
+  - Flight Booking:
     ```bash
     cd flightBooking
     npm start
-- Hotel rental:
+  - Hotel rental:
     ```bash
     cd hotelsBooking
     npm start
-- Car Rental:
-  ```bash
+  - Car Rental:
+    ```bash
     cd carRentalBooking
     npm start
- - gateway api:
-  ```bash
+   - gateway api:
+    ```bash
     cd gateway
     npm start
       
