@@ -43,12 +43,22 @@ the third micro service (Car Rental) : GRPC
   ```bash
     cd carRentalBooking
     npm start
+ - gateway api:
+  ```bash
+    cd gateway
+    npm start
 2.Access the microservices via their respective endpoints:
 
 - Flight Booking: http://localhost:3000
 - Hotel Rental: http://localhost:4000
 - Car Rental: http://localhost:50051
-- gateway : http://localhost:5000
+or you can access to the microservices via  gateway : 
+  - /flights': 'http://localhost:5000/flights',
+  - '/createFlight': 'http://localhost:5000/createFlight',
+  - '/updateFlight':  'http://localhost:5000/updateFlight/:flightId',
+  - '/deleteFlight' :'http://localhost:5000/deleteFlight/:flightId',
+  - '/graphql' :'http://localhost:5000/graphql',
+  
 
 
 
