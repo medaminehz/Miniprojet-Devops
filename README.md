@@ -44,11 +44,12 @@ the third micro service (Car Rental) : GRPC
     ```bash
     cd carRentalBooking
     npm start
-   - gateway api:
+   - Gateway api:
     ```bash
     cd gateway
     npm start
-      
+    
+    
 2. Access the microservices via their respective endpoints:
 
 - Flight Booking: http://localhost:3000
