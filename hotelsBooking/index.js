@@ -29,7 +29,7 @@ async function startServer() {
   
 
   mongoose
-    .connect('mongodb+srv://aminehz:aminehz@cluster0.xkuwtru.mongodb.net/?retryWrites=true&w=majority', {
+    .connect('mongodb+srv://mohamedamineharzallah:aminehz@devops.hb9p1gm.mongodb.net/?retryWrites=true&w=majority', {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     })

@@ -10,9 +10,9 @@ app.use(express.json());
 
 app.set('view engine', 'ejs');
 
-const dbURI ='mongodb+srv://aminehz:aminehz@cluster0.xkuwtru.mongodb.net/?retryWrites=true&w=majority';
+const dbURI ='mongodb+srv://mohamedamineharzallah:aminehz@devops.hb9p1gm.mongodb.net/?retryWrites=true&w=majority';
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then((result) => app.listen(3000))
+  .then((result) => app.listen(3006))
   .catch((err) => console.log(err));
 
 
