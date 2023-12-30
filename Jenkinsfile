@@ -25,7 +25,7 @@ pipeline {
 
         stage('Run Tests') {
             steps {
-               
+              
             }
         }
 
@@ -75,6 +75,7 @@ pipeline {
                 dir('gateway') {
                     sh 'pkill -f nodemon'
                 }
+               
             }
         }
     }
