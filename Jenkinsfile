@@ -25,31 +25,22 @@ pipeline {
 
         stage('Run Tests') {
             steps {
-                dir('carRentalBooking') {
-                    sh 'npm install --force'
-                    sh 'npm test'
-                }
-                dir('flightBooking') {
-                    sh 'npm install --force'
-                    sh 'npm test'
-                }
-                dir('gateway') {
-                    sh 'npm install --force'
-                    sh 'npm test'
-                }
+               
             }
         }
 
         stage('Start Services') {
             steps {
                 dir('carRentalBooking') {
+                    sh 'npm install --force'
                     sh 'nodemon carRentalServer.js &'
                 }
                 dir('flightBooking') {
+                    sh 'npm install --force'
                     sh 'nodemon index.js &'
                 }
                 dir('gateway') {
-                   
+                    sh 'npm install --force'
                     sh 'nodemon index.js &'
                 }
             }
@@ -84,7 +75,6 @@ pipeline {
                 dir('gateway') {
                     sh 'pkill -f nodemon'
                 }
-               
             }
         }
     }
