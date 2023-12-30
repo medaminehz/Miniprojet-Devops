@@ -23,11 +23,6 @@ pipeline {
             }
         }
 
-        stage('Run Tests') {
-            steps {
-                
-            }
-        }
 
         stage('Start Services') {
             steps {
