@@ -26,12 +26,15 @@ pipeline {
         stage('Run Tests') {
             steps {
                 dir('carRentalBooking') {
+                    sh 'npm install --force'
                     sh 'npm test'
                 }
                 dir('flightBooking') {
+                    sh 'npm install --force'
                     sh 'npm test'
                 }
                 dir('gateway') {
+                    sh 'npm install --force'
                     sh 'npm test'
                 }
             }
