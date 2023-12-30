@@ -1,36 +1,88 @@
 pipeline {
     agent any
+    
     environment {
         DOCKER_IMAGE = 'miniProjet-Devops'
-        REGISTRY_URL = 'docker.io/medaminehz' 
+        REGISTRY_URL = 'docker.io/medaminehz'
     }
+
     stages {
-        stage('Build Docker Image') {
+        stage('Build Docker Images') {
             steps {
                 script {
-                    docker.build("${REGISTRY_URL}/${DOCKER_IMAGE}:${env.BUILD_ID}")
-                }
-            }
-        }
-        stage('Run Tests') {
-            steps {
-                sh 'npm test' 
-            }
-        }
-        stage('Push to Docker Registry') {
-            steps {
-                script {
-                    docker.withRegistry('https://registry.hub.docker.com', 'dh_cred') {
-                        dockerImage.push("${REGISTRY_URL}/${DOCKER_IMAGE}:${env.BUILD_ID}")
+                    dir('carRentalBooking') {
+                        docker.build("${REGISTRY_URL}/car-rental-booking:${env.BUILD_ID}")
+                    }
+                    dir('flightBooking') {
+                        docker.build("${REGISTRY_URL}/flight-booking:${env.BUILD_ID}")
+                    }
+                    dir('gateway') {
+                        docker.build("${REGISTRY_URL}/gateway:${env.BUILD_ID}")
                     }
                 }
             }
         }
+
+        stage('Run Tests') {
+            steps {
+                dir('carRentalBooking') {
+                    sh 'npm test'
+                }
+                dir('flightBooking') {
+                    sh 'npm test'
+                }
+                dir('gateway') {
+                    sh 'npm test'
+                }
+            }
+        }
+
+        stage('Start Services') {
+            steps {
+                dir('carRentalBooking') {
+                    sh 'nodemon carRentalServer.js &'
+                }
+                dir('flightBooking') {
+                    sh 'nodemon index.js &'
+                }
+                dir('gateway') {
+                   
+                    sh 'nodemon index.js &'
+                }
+            }
+        }
+
+        stage('Push to Docker Registry') {
+            steps {
+                script {
+                    docker.withRegistry('https://registry.hub.docker.com', 'dh_cred') {
+                        dir('carRentalBooking') {
+                            dockerImage.push("${REGISTRY_URL}/car-rental-booking:${env.BUILD_ID}")
+                        }
+                        dir('flightBooking') {
+                            dockerImage.push("${REGISTRY_URL}/flight-booking:${env.BUILD_ID}")
+                        }
+                        dir('gateway') {
+                            dockerImage.push("${REGISTRY_URL}/gateway:${env.BUILD_ID}")
+                        }
+                    }
+                }
+            }
+        }
+
         stage('Cleanup') {
             steps {
-                sh 'npm test stop' 
+                dir('carRentalBooking') {
+                    sh 'pkill -f nodemon'
+                }
+                dir('flightBooking') {
+                    sh 'pkill -f nodemon'
+                }
+                dir('gateway') {
+                    sh 'pkill -f nodemon'
+                }
+               
             }
         }
     }
-  
 }
