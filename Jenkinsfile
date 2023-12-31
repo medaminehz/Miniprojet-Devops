@@ -67,18 +67,18 @@ stage('Push to Docker Registry') {
 }
 
 
-        stage('Cleanup') {
-            steps {
-               dir('carRentalBooking') {
-                    sh 'pkill -f node'
-                }
-                dir('flightBooking') {
-                    sh 'pkill -f node'
-                }
-                dir('gateway') {
-                    sh 'pkill -f node'
-                }
-            }
+stage('Cleanup') {
+    steps {
+       dir('carRentalBooking') {
+            sh 'sudo pkill -f node'
         }
+        dir('flightBooking') {
+            sh 'sudo pkill -f node'
+        }
+        dir('gateway') {
+            sh 'sudo pkill -f node'
+        }
+    }
+}
     }
 }
