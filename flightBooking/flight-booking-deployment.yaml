@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flight-booking
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: flight-booking
+  template:
+    metadata:
+      labels:
+        app: flight-booking
+    spec:
+      containers:
+      - name: flight-booking
+        image: docker.io/medaminehz/flight-booking
+        ports:
+        - containerPort: 3006 

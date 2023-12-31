@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: car-rental-booking-service
+spec:
+  selector:
+    app: car-rental-booking
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 50051 
+      nodePort: 30003 

@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: flight-booking-lb-service
+spec:
+  selector:
+    app: flight-booking
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 3006 

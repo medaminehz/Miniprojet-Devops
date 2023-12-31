@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: flight-booking-service
+spec:
+  selector:
+    app: flight-booking
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 3006 
+      nodePort: 30002
