@@ -44,31 +44,31 @@ pipeline {
             }
         }
 
-        stage('Push to Docker Registry') {
-            steps {
-                dir('carRentalBooking') {
-                    script {
-                        docker.withRegistry('https://registry.hub.docker.com', 'dh_cred') {
-                            docker.push("${REGISTRY_URL}/car-rental-booking:${env.BUILD_ID}")
-                        }
-                    }
-                }
-                dir('flightBooking') {
-                    script {
-                        docker.withRegistry('https://registry.hub.docker.com', 'dh_cred') {
-                            docker.push("${REGISTRY_URL}/flight-booking:${env.BUILD_ID}")
-                        }
-                    }
-                }
-                dir('gateway') {
-                    script {
-                        docker.withRegistry('https://registry.hub.docker.com', 'dh_cred') {
-                            docker.push("${REGISTRY_URL}/gateway:${env.BUILD_ID}")
-                        }
-                    }
+stage('Push to Docker Registry') {
+    steps {
+        dir('carRentalBooking') {
+            script {
+                docker.withRegistry('https://registry.hub.docker.com', 'dh_cred') {
+                    docker.image("${REGISTRY_URL}/car-rental-booking:${env.BUILD_ID}").push()
                 }
             }
         }
+        dir('flightBooking') {
+            script {
+                docker.withRegistry('https://registry.hub.docker.com', 'dh_cred') {
+                    docker.image("${REGISTRY_URL}/flight-booking:${env.BUILD_ID}").push()
+                }
+            }
+        }
+        dir('gateway') {
+            script {
+                docker.withRegistry('https://registry.hub.docker.com', 'dh_cred') {
+                    docker.image("${REGISTRY_URL}/gateway:${env.BUILD_ID}").push()
+                }
+            }
+        }
+    }
+}
 
         stage('Cleanup') {
             steps {
