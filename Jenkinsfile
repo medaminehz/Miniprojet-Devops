@@ -28,15 +28,15 @@ pipeline {
             steps {
                 dir('carRentalBooking') {
                     sh 'npm install --force'
-                    sh 'nodemon carRentalServer.js &'
+                    sh 'node carRentalServer.js &'
                 }
                 dir('flightBooking') {
                     sh 'npm install --force'
-                    sh 'nodemon index.js &'
+                    sh 'node index.js &'
                 }
                 dir('gateway') {
                     sh 'npm install --force'
-                    sh 'nodemon index.js &'
+                    sh 'node index.js &'
                 }
             }
         }
@@ -62,13 +62,13 @@ pipeline {
         stage('Cleanup') {
             steps {
                 dir('carRentalBooking') {
-                    sh 'pkill -f nodemon'
+                    sh 'pkill -f node'
                 }
                 dir('flightBooking') {
-                    sh 'pkill -f nodemon'
+                    sh 'pkill -f node'
                 }
                 dir('gateway') {
-                    sh 'pkill -f nodemon'
+                    sh 'pkill -f node'
                 }
             }
         }
