@@ -47,21 +47,21 @@ pipeline {
 stage('Push to Docker Registry') {
     steps {
         dir('carRentalBooking') {
-            withDockerRegistry([credentialsId: 'dh_cred', url: 'https://registry.hub.docker.com']) {
+            withDockerRegistry([credentialsId: 'dh_cred', url: 'https://hub.docker.com']) {
                 script {
                     docker.image("${REGISTRY_URL}/car-rental-booking:${env.BUILD_ID}").push()
                 }
             }
         }
         dir('flightBooking') {
-            withDockerRegistry([credentialsId: 'dh_cred', url: 'https://registry.hub.docker.com']) {
+            withDockerRegistry([credentialsId: 'dh_cred', url: 'https://hub.docker.com']) {
                 script {
                     docker.image("${REGISTRY_URL}/flight-booking:${env.BUILD_ID}").push()
                 }
             }
         }
         dir('gateway') {
-            withDockerRegistry([credentialsId: 'dh_cred', url: 'https://registry.hub.docker.com']) {
+            withDockerRegistry([credentialsId: 'dh_cred', url: 'https://hub.docker.com']) {
                 script {
                     docker.image("${REGISTRY_URL}/gateway:${env.BUILD_ID}").push()
                 }
