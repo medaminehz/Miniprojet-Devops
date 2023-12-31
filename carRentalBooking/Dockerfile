@@ -10,7 +10,7 @@ COPY package*.json ./
 RUN npm install --force
 
 
-COPY carRentalServer.js ./   
+COPY . .
 
 EXPOSE 50051
 
