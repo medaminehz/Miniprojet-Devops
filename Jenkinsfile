@@ -46,22 +46,19 @@ pipeline {
 
 stage('Push to Docker Registry') {
     steps {
-        withDockerRegistry(credentialsId: 'dh_cred') {
+        withDockerRegistry([credentialsId: 'dh_cred', url: 'https://index.docker.io/v1/']) {
             dir('carRentalBooking') {
                 script {
-                    sh 'docker login -u medaminehz --password-stdin'
                     docker.image("${REGISTRY_URL}/car-rental-booking:${env.BUILD_ID}").push()
                 }
             }
             dir('flightBooking') {
                 script {
-                    sh 'docker login -u medaminehz --password-stdin'
                     docker.image("${REGISTRY_URL}/flight-booking:${env.BUILD_ID}").push()
                 }
             }
             dir('gateway') {
                 script {
-                    sh 'docker login -u medaminehz --password-stdin'
                     docker.image("${REGISTRY_URL}/gateway:${env.BUILD_ID}").push()
                 }
             }
