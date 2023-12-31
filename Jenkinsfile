@@ -19,6 +19,11 @@ pipeline {
                         docker.build("${REGISTRY_URL}/flight-booking:${env.BUILD_ID}")
                     }
                 }
+                dir('hotelsBooking') {
+                    script {
+                        docker.build("${REGISTRY_URL}/hotels-booking:${env.BUILD_ID}")
+                    }
+                }
                 dir('gateway') {
                     script {
                         docker.build("${REGISTRY_URL}/gateway:${env.BUILD_ID}")
@@ -34,6 +39,10 @@ pipeline {
                     sh 'node carRentalServer.js &'
                 }
                 dir('flightBooking') {
+                    sh 'npm install --force'
+                    sh 'node index.js &'
+                }
+                 dir('hotelsBooking') {
                     sh 'npm install --force'
                     sh 'node index.js &'
                 }
@@ -57,6 +66,11 @@ stage('Push to Docker Registry') {
                     docker.image("${REGISTRY_URL}/flight-booking:${env.BUILD_ID}").push()
                 }
             }
+            dir('hotelsBooking') {
+                script {
+                    docker.image("${REGISTRY_URL}/hotels-booking:${env.BUILD_ID}").push()
+                }
+            }
             dir('gateway') {
                 script {
                     docker.image("${REGISTRY_URL}/gateway:${env.BUILD_ID}").push()
@@ -73,6 +87,9 @@ stage('Cleanup') {
             sh 'sudo pkill -f node'
         }
         dir('flightBooking') {
+            sh 'sudo pkill -f node'
+        }
+         dir('hotelsBooking') {
             sh 'sudo pkill -f node'
         }
         dir('gateway') {

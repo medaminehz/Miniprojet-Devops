@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: flight-booking
+  name: hotels-booking
 spec:
   replicas: 5
   selector:
     matchLabels:
-      app: flight-booking
+      app: hotels-booking
   template:
     metadata:
       labels:
-        app: flight-booking
+        app: hotels-booking
     spec:
       containers:
-      - name: flight-booking
-        image: medaminehz/flight-booking:tagname
+      - name: hotels-booking
+        image: medaminehz/hotels-booking:tagname
         ports:
         - containerPort: 3006 

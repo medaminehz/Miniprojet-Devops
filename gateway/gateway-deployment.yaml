@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: gateway
-        image: docker.io/medaminehz/gateway
+        image: medaminehz/gateway:tagname
         ports:
         - containerPort: 5001 

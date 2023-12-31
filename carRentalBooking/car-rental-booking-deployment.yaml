@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: car-rental-booking
-        image: docker.io/medaminehz/car-rental-booking
+        image: medaminehz/car-rental-booking:tagname
         ports:
         - containerPort: 50051 
