@@ -1,8 +1,9 @@
 const grpc = require('grpc');
 const protoLoader = require('@grpc/proto-loader');
-
+const path=require('path');
+const protoPath = path.join(__dirname, 'carRental.proto');
 // Load the generated protobuf definition
-const packageDefinition = protoLoader.loadSync('carRental.proto');
+const packageDefinition = protoLoader.loadSync(protoPath);
 const carRentalProto = grpc.loadPackageDefinition(packageDefinition).carrental;
 
 // Implement the gRPC service

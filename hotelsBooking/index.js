@@ -2,7 +2,9 @@
 const { ApolloServer, gql } = require('apollo-server-express');
 const express = require('express');
 const mongoose = require('mongoose');
-const typeDefs=require('./typeDefs');
+const path = require('path');
+const typeDefsPath = path.join(__dirname, 'typeDefs.js');
+const typeDefs=require(typeDefsPath);
 const resolvers=require('./hotelResolvers');
 
 async function startServer() {
