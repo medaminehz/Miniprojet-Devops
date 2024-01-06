@@ -12,8 +12,9 @@ spec:
       labels:
         app: hotels-booking
     spec:
+      dnsPolicy: Default
       containers:
       - name: hotels-booking
-        image: medaminehz/hotels-booking:tagname
+        image: medaminehz/hotels-booking:10
         ports:
         - containerPort: 3006 

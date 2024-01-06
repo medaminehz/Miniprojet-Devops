@@ -12,8 +12,9 @@ spec:
       labels:
         app: flight-booking
     spec:
+      dnsPolicy: Default
       containers:
       - name: flight-booking
-        image: medaminehz/flight-booking:tagname
+        image: medaminehz/flight-booking:10
         ports:
         - containerPort: 3006 
