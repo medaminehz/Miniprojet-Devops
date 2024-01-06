@@ -7,30 +7,14 @@ pipeline {
     }
 
     stages {
-        stage('Build Docker Images') {
-            steps {
-                dir('carRentalBooking') {
-                    script {
-                        docker.build("${REGISTRY_URL}/car-rental-booking:${env.BUILD_ID}")
-                    }
-                }
-                dir('flightBooking') {
-                    script {
-                        docker.build("${REGISTRY_URL}/flight-booking:${env.BUILD_ID}")
-                    }
-                }
-                dir('hotelsBooking') {
-                    script {
-                        docker.build("${REGISTRY_URL}/hotels-booking:${env.BUILD_ID}")
-                    }
-                }
-                dir('gateway') {
-                    script {
-                        docker.build("${REGISTRY_URL}/gateway:${env.BUILD_ID}")
-                    }
-                }
-            }
-        }
+stage('Build Docker Images') {
+    steps {
+        sh 'docker build -t ${REGISTRY_URL}/car-rental-booking:${env.BUILD_ID} ./carRentalBooking'
+        sh 'docker build -t ${REGISTRY_URL}/flight-booking:${env.BUILD_ID} ./flightBooking'
+        sh 'docker build -t ${REGISTRY_URL}/hotels-booking:${env.BUILD_ID} ./hotelsBooking'
+        sh 'docker build -t ${REGISTRY_URL}/gateway:${env.BUILD_ID} ./gateway'
+    }
+}
 
         stage('Start Services') {
             steps {
@@ -55,27 +39,13 @@ pipeline {
 
 stage('Push to Docker Registry') {
     steps {
-        withDockerRegistry([credentialsId: 'dh_cred', url: 'https://index.docker.io/v1/']) {
-            dir('carRentalBooking') {
-                script {
-                    docker.image("${REGISTRY_URL}/car-rental-booking:${env.BUILD_ID}").push()
-                }
-            }
-            dir('flightBooking') {
-                script {
-                    docker.image("${REGISTRY_URL}/flight-booking:${env.BUILD_ID}").push()
-                }
-            }
-            dir('hotelsBooking') {
-                script {
-                    docker.image("${REGISTRY_URL}/hotels-booking:${env.BUILD_ID}").push()
-                }
-            }
-            dir('gateway') {
-                script {
-                    docker.image("${REGISTRY_URL}/gateway:${env.BUILD_ID}").push()
-                }
-            }
+        withCredentials([string(credentialsId: 'dh_cred', variable: 'DOCKER_CREDS')]) {
+            sh "echo $DOCKER_CREDS | docker login -u medaminehz --password-stdin https://index.docker.io/v1/"
+
+            sh "docker push ${REGISTRY_URL}/car-rental-booking:${env.BUILD_ID}"
+            sh "docker push ${REGISTRY_URL}/flight-booking:${env.BUILD_ID}"
+            sh "docker push ${REGISTRY_URL}/hotels-booking:${env.BUILD_ID}"
+            sh "docker push ${REGISTRY_URL}/gateway:${env.BUILD_ID}"
         }
     }
 }
