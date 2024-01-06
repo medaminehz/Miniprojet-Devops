@@ -9,33 +9,12 @@ pipeline {
     stages {
 stage('Build Docker Images') {
     steps {
-        sh 'docker build -t ${REGISTRY_URL}/car-rental-booking:${env.BUILD_ID} ./carRentalBooking'
-        sh 'docker build -t ${REGISTRY_URL}/flight-booking:${env.BUILD_ID} ./flightBooking'
-        sh 'docker build -t ${REGISTRY_URL}/hotels-booking:${env.BUILD_ID} ./hotelsBooking'
-        sh 'docker build -t ${REGISTRY_URL}/gateway:${env.BUILD_ID} ./gateway'
+        sh "docker build -t ${REGISTRY_URL}/car-rental-booking:${env.BUILD_ID} ./carRentalBooking"
+        sh "docker build -t ${REGISTRY_URL}/flight-booking:${env.BUILD_ID} ./flightBooking"
+        sh "docker build -t ${REGISTRY_URL}/hotels-booking:${env.BUILD_ID} ./hotelsBooking"
+        sh "docker build -t ${REGISTRY_URL}/gateway:${env.BUILD_ID} ./gateway"
     }
 }
-
-        stage('Start Services') {
-            steps {
-                  dir('carRentalBooking') {
-                    sh 'npm install --force'
-                    sh 'node carRentalServer.js &'
-                }
-                dir('flightBooking') {
-                    sh 'npm install --force'
-                    sh 'node index.js &'
-                }
-                 dir('hotelsBooking') {
-                    sh 'npm install --force'
-                    sh 'node index.js &'
-                }
-                dir('gateway') {
-                    sh 'npm install --force'
-                    sh 'node index.js &'
-                }
-            }
-        }
 
 stage('Push to Docker Registry') {
     steps {
