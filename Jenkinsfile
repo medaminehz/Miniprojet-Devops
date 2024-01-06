@@ -32,7 +32,7 @@ pipeline {
             }
         }
 
-        /*stage('Start Services') {
+        stage('Start Services') {
             steps {
                   dir('carRentalBooking') {
                     sh 'npm install --force'
@@ -51,7 +51,7 @@ pipeline {
                     sh 'node index.js &'
                 }
             }
-        }*/
+        }
 
 stage('Push to Docker Registry') {
     steps {
