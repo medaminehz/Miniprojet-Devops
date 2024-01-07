@@ -37,7 +37,7 @@ The project is deployed using Minikube. Below are the steps to deploy and access
 ## Screenshots
 
 1. **Microservices Overview**  
-   ![Microservices Overview](path/to/microservices_screenshot.png)
+   ![Microservices Overview](https://private-user-images.githubusercontent.com/100476241/294775697-dcf30f96-c591-4d71-b479-c7bf06b51a23.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MDQ2NTA2MzEsIm5iZiI6MTcwNDY1MDMzMSwicGF0aCI6Ii8xMDA0NzYyNDEvMjk0Nzc1Njk3LWRjZjMwZjk2LWM1OTEtNGQ3MS1iNDc5LWM3YmYwNmI1MWEyMy5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwMTA3JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDEwN1QxNzU4NTFaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT04NzNhNjBlMGJjNTMwYjY3MzAzZjA3NmU1MWU4YWNkM2Q1MWJlOWRkOTQxOTIwNDFmZTM3OTdmZWRkYTk1YWE3JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.mHenLKfVmn5e249-NBMDDIhc79AY-IViuEzIXU64_0A)
 
 2. **MongoDB Setup**  
    ![MongoDB Setup](path/to/mongodb_screenshot.png)
