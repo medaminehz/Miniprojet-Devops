@@ -4,10 +4,10 @@ const { createProxyMiddleware } = require('http-proxy-middleware');
 const app = express();
 
 const routes = {
-  '/flights': 'http://localhost:3006/flights',
-  '/createFlight': 'http://localhost:3006/createFlight',
-  '/updateFlight':  'http://localhost:3006/updateFlight/:flightId',
-  '/graphql' :'http://localhost:4000/graphql',
+  '/flights': 'http://192.168.49.2:30002/flights',
+  '/createFlight': 'http://192.168.49.2:30002/createFlight',
+  '/updateFlight':  'http://192.168.49.2:30002/updateFlight/:flightId',
+  '/graphql' :  'http://192.168.49.2:30005/graphql',
   
 };
 
@@ -28,7 +28,7 @@ for (const route in routes) {
 
 
 app.get('/trajets', (req, res) => {
-  const targetURL = 'http://localhost:3006/flights'; 
+  const targetURL = 'http://192.168.49.2:30002/flights'; 
 
 
   createProxyMiddleware({
@@ -38,7 +38,7 @@ app.get('/trajets', (req, res) => {
 });
 
 app.post('/createFlight', (req, res) => {
-  const targetURL = 'http://localhost:3006/createFlight';
+  const targetURL = 'http://192.168.49.2:30002/createFlight';
 
   createProxyMiddleware({
     target: targetURL,
@@ -46,7 +46,7 @@ app.post('/createFlight', (req, res) => {
   })(req, res);
 });
 app.put('/updateFlight',(req,res)=>{
-const targetURL='http://localhost:3006/updateFlight/:flightId';
+const targetURL='http://192.168.49.2:30002/updateFlight/:flightId';
 createProxyMiddleware({
   target: targetURL,
   changeOrigin: true,
@@ -54,7 +54,7 @@ createProxyMiddleware({
 });
 
 app.post('/graphql', (req, res) => {
-  const targetURL = 'http://localhost:4000/graphql';
+  const targetURL = 'http://192.168.49.2:30005/graphql';
 
   createProxyMiddleware({
     target: targetURL,
