@@ -1,6 +1,6 @@
 # DevOps Mini Project with Kubernetes
 
-This project demonstrates a DevOps setup using Kubernetes to deploy microservices - Car Rental Booking, Flight Booking, and Hotels Booking, along with a Gateway to handle service routing.
+This project is a DevOps setup using Kubernetes to deploy microservices - Car Rental Booking, Flight Booking, and Hotels Booking, along with a Gateway to handle service routing.
 
 ## Services Overview
 
