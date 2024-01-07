@@ -15,6 +15,6 @@ spec:
       dnsPolicy: Default
       containers:
       - name: hotels-booking
-        image: medaminehz/hotels-booking:10
+        image: medaminehz/hotels-booking:11
         ports:
         - containerPort: 3006 

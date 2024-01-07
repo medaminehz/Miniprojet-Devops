@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: car-rental-booking
-        image: medaminehz/car-rental-booking:tagname
+        image: medaminehz/car-rental-booking:11
         ports:
         - containerPort: 50051 

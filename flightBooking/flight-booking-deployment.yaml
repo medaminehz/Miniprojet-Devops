@@ -15,6 +15,6 @@ spec:
       dnsPolicy: Default
       containers:
       - name: flight-booking
-        image: medaminehz/flight-booking:10
+        image: medaminehz/flight-booking:11
         ports:
         - containerPort: 3006 
