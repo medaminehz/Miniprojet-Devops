@@ -1,80 +1,77 @@
-# miniprojet-api-
-# Microservices Project
+# DevOps Mini Project with Kubernetes
 
-This project consists of three microservices: Flight Booking, Hotel Rental, and Car Rental. Each microservice handles a specific aspect of the travel booking process.There is a file gateway that integrate all services.
-the first mico service(Flight Booking) : REST
-the second micro service(Hotel Rental) :Graphql
-the third micro service (Car Rental) : GRPC
+This project demonstrates a DevOps setup using Kubernetes to deploy microservices - Car Rental Booking, Flight Booking, and Hotels Booking, along with a Gateway to handle service routing.
 
-## Prerequisites
+## Services Overview
 
-- Node.js (version 16.16.0)
+### Car Rental Booking Service
 
-## Installation
+- **Access:** [http://192.168.49.2:30001/carRental](http://192.168.49.2:30001/carRental)
+- **Routes:**
+  - `/cars`: Get all cars
+  - `/createCar`: Create a new car entry
 
-1. Clone the repository:
+### Flight Booking Service
 
-   ```bash
-   git clone https://github.com/aminehz/miniprojet-api-
-2.Install dependencies for each microservice:
-- Flight Booking:
+- **Access:** [http://192.168.49.2:30001/flights](http://192.168.49.2:30001/flights)
+- **Routes:**
+  - `/flights`: Get all flights
+  - `/createFlight`: Create a new flight entry
+
+### Hotels Booking Service
+
+- **Access:** [http://192.168.49.2:30001/graphql](http://192.168.49.2:30001/graphql)
+- **Additional Info:** Utilizes GraphQL for querying hotel data
+
+## Deployment
+
+The project is deployed using Minikube. Below are the steps to deploy and access the services:
+
+1. Start Minikube: 
     ```bash
-    cd flightBooking
-    npm install
-- Hotel rental:
+    $ minikube start
+    ```
+
+2. Deploy services:
     ```bash
-    cd hotelsBooking
-    npm install
-- Car Rental:
-  ```bash
-    cd carRentalBooking
-    npm install
-## Usage:
+    $ kubectl apply -f <yaml-files>
+    ```
 
-1. Start each microservice:
-  - Flight Booking:
-    ```bash
-    cd flightBooking
-    npm start
-  - Hotel rental:
-    ```bash
-    cd hotelsBooking
-    npm start
-    
-  - Car Rental:
-    ```bash
-    cd carRentalBooking
-    npm start
-    
-   - Gateway api:
-     ```bash
-     cd gateway
-     npm start
-    
-    
-2. Access the microservices via their respective endpoints:
+3. Accessing services:
+    - Car Rental Booking: [http://192.168.49.2:30001/carRental](http://192.168.49.2:30001/carRental)
+    - Flight Booking: [http://192.168.49.2:30001/flights](http://192.168.49.2:30001/flights)
+    - Hotels Booking (GraphQL): [http://192.168.49.2:30001/graphql](http://192.168.49.2:30001/graphql)
 
-- Flight Booking: http://localhost:3000
-- Hotel Rental: http://localhost:4000
-- Car Rental: http://localhost:50051
+## Screenshots
 
-3. You can access to the microservices via  gateway : 
-  - /flights': 'http://localhost:5000/flights',
-  - '/createFlight': 'http://localhost:5000/createFlight',
-  - '/updateFlight':  'http://localhost:5000/updateFlight/:flightId',
-  - '/deleteFlight' :'http://localhost:5000/deleteFlight/:flightId',
-  - '/graphql' :'http://localhost:5000/graphql',
-  
+1. **Microservices Overview**  
+   ![Microservices Overview](path/to/microservices_screenshot.png)
 
+2. **MongoDB Setup**  
+   ![MongoDB Setup](path/to/mongodb_screenshot.png)
 
+3. **Thunderclient Routes Testing**  
+   ![Thunderclient Testing](path/to/thunderclient_screenshot.png)
 
+4. **Jenkins Configuration**  
+   - **Jenkinsfile:** Include content or reference to Jenkinsfile
+   - **Jenkins Application:** Screenshot of Jenkins dashboard or relevant setup
 
+5. **Docker Configuration**
+   - **Dockerfile:** Include content or reference to Dockerfile
+   - **Docker Hub:** Information about Docker Hub repository if used
 
+## Additional Commands
 
+Useful commands to manage the Kubernetes environment:
 
+- `kubectl get pods`: List all running pods
+- `kubectl apply -f <file>`: Apply changes using YAML file
 
+## Contributing
 
+Feel free to contribute by opening issues or pull requests. Provide any feedback, suggestions, or bug reports.
 
+## License
 
-
-# Miniprojet-Devops
+This project is licensed under the [MIT License](LICENSE).
