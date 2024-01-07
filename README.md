@@ -4,13 +4,6 @@ This project demonstrates a DevOps setup using Kubernetes to deploy microservice
 
 ## Services Overview
 
-### Car Rental Booking Service
-
-- **Access:** [http://192.168.49.2:30001/carRental](http://192.168.49.2:30001/carRental)
-- **Routes:**
-  - `/cars`: Get all cars
-  - `/createCar`: Create a new car entry
-
 ### Flight Booking Service
 
 - **Access:** [http://192.168.49.2:30001/flights](http://192.168.49.2:30001/flights)
@@ -38,7 +31,6 @@ The project is deployed using Minikube. Below are the steps to deploy and access
     ```
 
 3. Accessing services:
-    - Car Rental Booking: [http://192.168.49.2:30001/carRental](http://192.168.49.2:30001/carRental)
     - Flight Booking: [http://192.168.49.2:30001/flights](http://192.168.49.2:30001/flights)
     - Hotels Booking (GraphQL): [http://192.168.49.2:30001/graphql](http://192.168.49.2:30001/graphql)
 
@@ -68,10 +60,4 @@ Useful commands to manage the Kubernetes environment:
 - `kubectl get pods`: List all running pods
 - `kubectl apply -f <file>`: Apply changes using YAML file
 
-## Contributing
 
-Feel free to contribute by opening issues or pull requests. Provide any feedback, suggestions, or bug reports.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
